@@ -17,6 +17,37 @@ sqlite> CREATE TABLE contacts (
 );
 ```
 
+En
+
+```
+sqlite> CREATE TABLE posts (
+        post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        contact_id INTERGER NOT NULL,
+        short_description TEXT,
+        content TEXT NOT NULL,
+        FOREIGN KEY (contact_id)
+                REFERENCES contacts (contact_id)
+);
+```
+
+# Vullen met data
+
+Het vullen van de tabellen met data kun je als volgt doen
+
+
+```
+sqlite> INSERT INTO contacts (first_name, last_name, email, phone) VALUES ("Piet", "Jansen", "piet@jansen.nl", "0623456789");
+```
+
 # Eigen database aanmaken
 
-Hier boven staat een voorbeeld tabel in de database. Je kunt deze tabellen aanpassen naar een database die je voor je eigen web-applicatie gebruikt. Eventueel kun je 
+Hier boven staat een voorbeeld tabel in de database. Je kunt deze tabellen aanpassen naar een database die je voor je eigen web-applicatie gebruikt. Verander dan de namen van de kolommen en de eigenschappen van de kolommen.
+
+De eigenschappen die ik in het voorbeeld heb gebruikt zijn:
+
+* INTERER, een getal
+* TEXT, text/string
+* NOT NULL, dit veld mag niet leeg zijn
+* UNIQUE, de data in dit veld moet uniek zijn
+* PRIMARY KEY, veld wat de rij in de tabel uniek maakt en waarmee je data uit verschillende tabellen aan elkaar kunt koppelen
+* AUTOINCREMENT, hoog de waarde uit deze kolom automatisch op met 1
