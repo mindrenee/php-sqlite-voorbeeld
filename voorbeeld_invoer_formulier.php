@@ -1,27 +1,28 @@
 <html>
-    <header>
+    <head>
 
-    </header>
+    </head>
     <body>
 
-    <?php
-        // Maak connectie met de voorbeeld database
-        // Deze database zit in het bestand voorbeeld.db
-        $db = new PDO('sqlite:voorbeeld.db');
-
-        // Vraag de voornaam en achternaam op van het contact 
-        // uit de tabel contacts
-        $sql = "SELECT first_name, last_name FROM contacts";
-        $resultaat = $db->query($sql);
-
-        // Print het resultaat op de pagina
-        foreach($resultaat as $row) {
-            echo $row['first_name'].$row['last_name'].'<br/>';
-        }
-
-        // Sluit de database connectie
-        $db = NULL;
-    ?>
+        <form action="voorbeeld_contact_opslaan.php" method="post">
+        <p>
+            Voornaam: </br>
+            <input name="first_name" type="text" size="30" tabindex="1">
+        </p>
+        <p>
+            Achternaam: </br>
+            <input name="last_name" type="text" size="30" tabindex="2">
+        </p>
+        <p>
+            Email: </br>
+            <input name="email" type="text" size="30" tabindex="3">
+        </p>
+        <p>
+            Telefoon: </br>
+            <input name="phone" type="text" size="30" tabindex="4">
+        </p>
+        <input type="submit" name="submit" value="Verstuur" title="Verstuur dit formulier" tabindex="5">
+        </form> 
 
     </body>
 </html>
